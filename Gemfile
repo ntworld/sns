@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# execjs
+gem 'therubyracer'
+gem 'execjs'
 # Devise
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 # jquery
