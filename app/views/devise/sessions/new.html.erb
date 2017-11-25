@@ -1,0 +1,47 @@
+<body>
+  <section class="logincontainer">
+    <article class="half">
+	    <h1>sns</h1>
+		    <div class="tabs">
+				  <span class="tab signin active"><a href="#signin">로그인</a></span>
+				  <span class="tab signup"><a href="#signup">회원가입</a></span>
+			  </div>
+			  <div class="content">
+				  <div class="signin-cont cont">
+					  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    				<%= f.email_field :email, :class => 'inpt', :placeholder => '이메일', :id => 'email', :required => true, autofocus: true %>
+    				<label for="email">Your email</label>
+    				<%= f.password_field :password, :class => 'inpt', :placeholder => '비밀번호', :id => 'password', :required => true, autocomplete: "off" %>
+            <label for="password">Your password</label>
+    				<% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me, :class => 'checkbox', :id => 'remember', :checked => "checked" %>
+            <label for="remember">정보 저장하기!</label>
+            <% end %>
+						<div class="submit-wrap">
+						  <%= f.submit "로그인", :class => 'submit' %>
+							<a href="#" class="more">비번을 잃어버리셨나용ㅠㅠ?</a>
+						</div>
+        		<% end %>
+    			</div>
+    			<div class="signup-cont cont">
+    				<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    				<%= devise_error_messages! %>
+      			<%= f.text_field :name, :class => 'inpt', :placeholder => '이름', :id => 'name', :required => true %>
+						<label for="name">Your name</label>
+    				<%= f.email_field :email, :class => 'inpt', :placeholder => '이메일', :id => 'email', :required => true %>
+						<label for="email">Your email</label>
+    				<%= f.password_field :password, :class => 'inpt', :placeholder => '비밀번호', :id => 'password', :required => true, autocomplete: "off" %>
+            <label for="password">Your password</label>
+            <%= f.password_field :password_confirmation, :class => 'inpt', :placeholder => '비번확인', :id => 'password_confirmation', :required => true, autocomplete: "off" %>
+						<label for="password_confirmation">Your password confirmation</label>
+						<div class="submit-wrap">
+						  <%= f.submit "회원가입", :class => 'submit' %>
+							<a href="#" class="more">빈 칸 없이 써주세용~</a>
+						</div>
+        	  <% end %>
+          </div>
+			  </div>
+		</article>
+	  <div class="half bg"></div>
+	</section>
+</body>

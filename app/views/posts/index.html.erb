@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-sm-4">
+        <div class="profile">
+            <img class="profile-img-top" src="http://cakorea.com/wp/wp-content/uploads/2015/02/%EA%B9%80%EA%B8%B0%EC%A1%B0_%EC%98%A4%EB%8A%98-%ED%95%A0%EC%9D%BC%EC%9D%80-%EB%82%B4%EC%9D%BC%EB%A1%9C-%EB%AF%B8%EB%A3%A8%EC%9E%901.jpg" alt="Card image cap">
+            <div class="profile-block">
+                <h3 class="profile-title"><%= current_user.name %></h3>
+                <p class="profile-text">이메일 : <%= current_user.email %></p>
+                <p class="profile-text">작성 글 개수 : <%= @posts_count %></p>
+                <button class="post-write">글쓰기</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="card" id="card-hidden">
+          <h3 class="card-header">새 글 작성하기</h3>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-body">
+                        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                        <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                        <%= form_tag posts_path, :id => 'contactForm' do %>
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label for="message">New Post</label>
+                                    <%= text_area_tag :content, nil, 
+                                    :placeholder => '무슨 생각을 하고 있나요?', :class => 'form-control', :row => '5',
+                                    :onkeyup => "this.style.height = this.scrollHeight + 'px';" %>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <br>
+                            <div id="success"></div>
+                            <%= button_tag "작성하기", class: "btn btn-success btn-lg" %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% @posts.each do |post| %>
+        <div class="card">
+          <h3 class="card-header"><%= post.user.name %></h3>
+          <h4><%= post.created_at %></h4>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-body">
+                        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                        <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="message">Post</label>
+                                <%= post.content %>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <a href="#">좋아요</a>
+                        <a href="#">댓글 달기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+
+        

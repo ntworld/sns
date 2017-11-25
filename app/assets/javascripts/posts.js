@@ -14,27 +14,15 @@
 //= require jquery_ujs
 //= require jquery.easing
 //= require rails-ujs
-//= require bootstrap-sprockets
-//= require_tree .
 
 $(document).ready(function($) {
-    $('.tabs .tab').click(function(){
-        if ($(this).hasClass('signin')) {
-            $('.tabs .tab').removeClass('active');
-            $(this).addClass('active');
-            $('.cont').hide();
-            $('.signin-cont').show();
-        } 
-        if ($(this).hasClass('signup')) {
-            $('.tabs .tab').removeClass('active');
-            $(this).addClass('active');
-            $('.cont').hide();
-            $('.signup-cont').show();
-        }
+    $("#card-hidden").hide();
+    $(".post-write").click(function (){
+        $("#card-hidden").show(500);
     });
-    $('.logincontainer .bg').mousemove(function(e){
-        var amountMovedX = (e.pageX * -1 / 30);
-        var amountMovedY = (e.pageY * -1 / 9);
-        $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+    $(document).mouseup(function(e){
+       var container = $("#card-hidden");
+       if(container.has(e.target).length === 0)
+        container.hide(500);
     });
 });
