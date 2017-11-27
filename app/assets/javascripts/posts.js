@@ -13,15 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.easing
-//= require rails-ujs
 
 $(document).ready(function($) {
     $("#card-hidden").hide();
+    $(".card-update").hide();
     $(".post-write").click(function (){
         $("#card-hidden").show(500);
     });
+
     $(document).mouseup(function(e){
        var container = $("#card-hidden");
+       if(container.has(e.target).length === 0)
+        container.hide(500);
+    });
+    $(document).mouseup(function(e){
+       var container = $(".card-update");
        if(container.has(e.target).length === 0)
         container.hide(500);
     });

@@ -1,0 +1,6 @@
+$("#card-hidden").hide(500);
+$(".form-control").val('');
+    
+$(".col-sm-8").prepend("<%= j render @post %>");
+$(".card-update").hide();
+$("#post_<%= @post.id %>").hide().fadeIn(1000);

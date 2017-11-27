@@ -1,0 +1,26 @@
+<div class="card">
+  <h3 class="card-header">글 수정하기</h3>
+    <div class="card-body">
+      <div class="row">
+        <div class="form-body">
+          <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+          <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+          <%= form_tag post_path(@post), method: "patch" do %>
+          <input type="hidden" name="id" value="<%=@post.id%>">
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="message">Modify</label>
+              <%= text_area_tag :content, @post.content, 
+                                :placeholder => '무슨 생각을 하고 있나요?', :class => 'form-control', :row => '5',
+                                :onkeyup => "this.style.height = this.scrollHeight + 'px';" %>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <%= button_tag "수정하기", class: "btn btn-success btn-lg" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

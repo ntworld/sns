@@ -1,0 +1,7 @@
+$("#updatepost_<%= @post.id %>").hide(500);
+
+$("#post_<%= @post.id %>").fadeOut(500, function(){
+	$(this).remove();
+	$(".col-sm-8").prepend('<%= j render @post %>');
+	$(".card-update").hide();
+});

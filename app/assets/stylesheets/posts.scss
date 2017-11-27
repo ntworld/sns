@@ -34,10 +34,6 @@ body {
     margin-bottom: 25px;    
 }
 
-#card-hidden {
-    
-}
-
 .card {
     border: solid 1px #e1e1e1;
     height: 100%;
@@ -55,6 +51,26 @@ body {
     width: 100%;
 }
 
+.card-update {
+    border: solid 1px #e1e1e1;
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 25px;
+    box-shadow: 1px 1px rgba(0, 0, 0, .1);
+}
+.card-post {
+    border: solid 1px #e1e1e1;
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 25px;
+    box-shadow: 1px 1px rgba(0, 0, 0, .1);
+}
 .row:only-child {
     border-top: 1px solid #eee;
 }
@@ -72,7 +88,10 @@ textarea.form-control {
 textarea.form-control:focus {
     height: 150px;
 }
-
+.modify {
+    float: right;
+    margin-left: 10px;
+}
 .post-write {
     font-size: 12px;
     line-height: 42px;

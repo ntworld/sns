@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.easing
-//= require rails-ujs
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -32,6 +31,7 @@ $(document).ready(function($) {
             $('.signup-cont').show();
         }
     });
+    
     $('.logincontainer .bg').mousemove(function(e){
         var amountMovedX = (e.pageX * -1 / 30);
         var amountMovedY = (e.pageY * -1 / 9);
