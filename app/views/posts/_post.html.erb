@@ -45,7 +45,7 @@
                 <a href="#">좋아요</a>
                 <a href="#">댓글 달기</a>
                 <% if current_user.id == post.user_id %>
-                    <%= link_to "삭제", post_path(post), method: "delete", class: "modify" %>
+                    <%= link_to "삭제", post, method: "delete", class: "modify", remote: true %>
                     <a class="modify" id="modify" data-target="#updatepost_<%= post.id %>">수정</a>
                 <% end %>
             </div>

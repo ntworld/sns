@@ -42,8 +42,13 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post.destroy
-    redirect_to root_path
+    respond_to do |format|
+      if @post.destroy
+        format.js
+      else
+        format.js
+      end
+    end
   end
   
   private
